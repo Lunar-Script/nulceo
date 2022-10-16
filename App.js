@@ -11,30 +11,6 @@ import NetInfo from "@react-native-community/netinfo";
 import { Restart } from "fiction-expo-restart";
 
 export default function App() {
-  const [level1p1, setLevel1p1] = useState(false);
-  const [level1p2, setLevel1p2] = useState(false);
-  const [level1p3, setLevel1p3] = useState(false);
-  const [level1p4, setLevel1p4] = useState(false);
-  const [level1p5, setLevel1p5] = useState(false);
-  const [level1p6, setLevel1p6] = useState(false);
-
-  //wifi states of the levels
-
-  const [level1p1w, setLevel1p1w] = useState(false);
-  const [level1p2w, setLevel1p2w] = useState(false);
-  const [level1p3w, setLevel1p3w] = useState(false);
-  const [level1p4w, setLevel1p4w] = useState(false);
-  const [level1p5w, setLevel1p5w] = useState(false);
-  const [level1p6w, setLevel1p6w] = useState(false);
-
-  //RESTART STATES OF EACH POSITIONS OF LEVELS
-  const [level1p1res, setlevel1p1res] = useState(false);
-  const [level1p2res, setlevel1p2res] = useState(false);
-  const [level1p3res, setlevel1p3res] = useState(false);
-  const [level1p4res, setlevel1p4res] = useState(false);
-  const [level1p5res, setlevel1p5res] = useState(false);
-  const [level1p6res, setlevel1p6res] = useState(false);
-
   const [wifi, setWifi] = useState();
   const Tab = createBottomTabNavigator();
 
@@ -59,56 +35,6 @@ export default function App() {
       .database()
       .ref("zen")
       .once("value", function (snapshot) {
-        // console.log(
-        //   "Level 1 Tower | p1: ",
-        //   snapshot.child("level1").child("1").hasChild("tower")
-        // );
-        // console.log(
-        //   "Level 1 Tower | p2: ",
-        //   snapshot.child("level1").child("2").hasChild("tower")
-        // );
-        // console.log(
-        //   "Level 1 Tower | p3: ",
-        //   snapshot.child("level1").child("3").hasChild("tower")
-        // );
-        // console.log(
-        //   "Level 1 Tower | p4: ",
-        //   snapshot.child("level1").child("4").hasChild("tower")
-        // );
-        // console.log(
-        //   "Level 1 Tower | p5: ",
-        //   snapshot.child("level1").child("5").hasChild("tower")
-        // );
-        // console.log(
-        //   "Level 1 Tower | p6: ",
-        //   snapshot.child("level1").child("6").hasChild("tower")
-        // );
-
-        // console.log(
-        //   "Level 1 wifi | p1: ",
-        //   snapshot.child("level1").child("1").hasChild("wifi")
-        // );
-        // console.log(
-        //   "Level 1 wifi | p2: ",
-        //   snapshot.child("level1").child("2").hasChild("wifi")
-        // );
-        // console.log(
-        //   "Level 1 wifi | p3: ",
-        //   snapshot.child("level1").child("3").hasChild("wifi")
-        // );
-        // console.log(
-        //   "Level 1 wifi | p4: ",
-        //   snapshot.child("level1").child("4").hasChild("wifi")
-        // );
-        // console.log(
-        //   "Level 1 wifi | p5: ",
-        //   snapshot.child("level1").child("5").hasChild("wifi")
-        // );
-        // console.log(
-        //   "Level 1 wifi | p6: ",
-        //   snapshot.child("level1").child("6").hasChild("wifi")
-        // );
-
         // CHECIKING AND UPDATING THE WIFI VALUES ACCORDING TO TOWER VALUES
 
         //L1P1 begin
@@ -582,58 +508,7 @@ export default function App() {
 
   NetInfo.fetch().then((state) => {
     setWifi(state.details.strength);
-
-    console.log(wifi);
   });
-
-  // if (firebase.database().ref("zen").on === true) {
-  //   if (level1p1w === true) {
-  //     console.log("Wifi value already exists!");
-  //   } else {
-  //     firebase.database().ref("zen").child("level1").child("1").update({
-  //       wifi: wifi,
-  //     });
-  //   }
-  // } else {
-  //   console.log("no tower value detected");
-  // }
-
-  // if (level1p2 === true) {
-  //   firebase.database().ref("zen").child("level1").child("2").update({
-  //     wifi: wifi,
-  //   });
-  // } else {
-  //   console.log("no tower value detected");
-  // }
-
-  // if (level1p3 === true) {
-  //   firebase.database().ref("zen").child("level1").child("3").update({
-  //     wifi: wifi,
-  //   });
-  // } else {
-  //   console.log("no tower value detected");
-  // }
-  // if (level1p4 === true) {
-  //   firebase.database().ref("zen").child("level1").child("4").update({
-  //     wifi: wifi,
-  //   });
-  // } else {
-  //   console.log("no tower value detected");
-  // }
-  // if (level1p5 === true) {
-  //   firebase.database().ref("zen").child("level1").child("5").update({
-  //     wifi: wifi,
-  //   });
-  // } else {
-  //   console.log("no tower value detected");
-  // }
-  // if (level1p6 === true) {
-  //   firebase.database().ref("zen").child("level1").child("6").update({
-  //     wifi: wifi,
-  //   });
-  // } else {
-  //   console.log("no tower value detected");
-  // }
 
   return (
     <NavigationContainer>
